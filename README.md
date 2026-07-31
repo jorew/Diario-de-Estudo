@@ -1,6 +1,9 @@
-# 🚀 [Nome do Projeto]
+# 📝📒 [Diário De Estudos]
 
-> [Uma frase curta e clara explicando o que o seu projeto faz e qual problema ele resolve.]
+> [Ainda é um protótipo, mas tem o objetivo de organizar a vida de um estudante que precisa equilibrar programação e rotina acadêmica.]
+
+
+# [Abaixo ainda será modificado mais futuramente.]
 
 ---
 
