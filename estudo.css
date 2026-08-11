@@ -1,4 +1,4 @@
-body {
+  body {
   /*Plano de Fundo*/
   background: linear-gradient(to right, #42f584, #412578);
   background-repeat: no-repeat;
@@ -6,22 +6,41 @@ body {
   background-attachment: fixed;
 }
 
-.nivel1 {
+h1 {
    /*Caixa de Texto h1*/
   text-align: center;
   color: white;
+  text-shadow: 2px 3px 5px rgba(0, 0, 0, 0.5);
 } 
 
-.nivel2 {
-  /*Caixa de Texto h2*/
+h2, h3 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.02em;
   text-align: center;
   color: white;
-  font-size: 18px;
+  text-shadow: 2px 3px 5px rgba(0, 0, 0, 0.5);
+  
 }
 
+p {
+  color: black;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  font-size: 15px;
+  margin-left: 38px;
+  margin-right: 38px;
+  text-align: center;
 
-.intro {
-   /*introdução*/
+}
+
+mark {
+  background-color: lime;
+}
+
+.container {
+  /*Remetente da Caixa 1*/
   align-items: center;
   background: radial-gradient(circle, #a7b5a7, #4be3b0);
   width: auto;
@@ -32,17 +51,46 @@ body {
   border-radius: 15px;
   border-color: white;
   
+  
 }
 
-#dt-intro {
+
+/*ESTRUTURA POR CLASSES*/
+
+.li_intro {
+  color: black;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  font-size: 15px;
+  margin-left: 15px;
+  margin-right: 25px;
+  
+  
+}
+
+.nivel2 {
+  /*Caixa de Texto h2*/
+  text-align: center;
+  color: white;
+  font-size: 18px;
+}
+
+.h2-intro {
   color: white;
   text-align: center;
-  font-size: 25px;
   margin-left: 38px;
   margin-right: 38px;
   background-color: black;
   opacity: 80%;
   border-radius: 10px;
+  
+  
+  /* Fonte */
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
+  font-size: 25px;
+  letter-spacing: -0.02em;
 }
 
 #dd-intro {
@@ -53,56 +101,242 @@ body {
   text-align: center;
 }
 
-
-.Bloco1 {
-  /*Remetente da Caixa 1 div*/
-  
+/* Caixa principal do sumário */
+.sumario-container {
+  border-width: 1px;
+  border-radius: 15px;
+  border-style: dashed;
+  border-color: black;
   align-items: center;
-  background: radial-gradient(circle, #a7b5a7, #4be3b0);
-  /*Estrutura*/
-  width: 180px;
-  height: 190px;
-  margin: 10px;
+  
+  max-width: auto;         /* Limita a largura máxima no PC */
+  width: 100%;              /* Garante que ele encolha no celular */
+  margin: 20px auto;        /* Centraliza o sumário na tela */
+  font-family: Arial, sans-serif;
+}
+
+/* Remove as bolinhas/números padrão da lista para controlarmos o visual */
+.lista-sumario {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Cada linha do sumário */
+.lista-sumario li {
+  display: flex;            /* Alinha o título, pontos e página lado a lado */
+  align-items: flex-end;    /* Alinha os pontos pela base do texto */
+  margin: 12px;      /* Espaço entre um capítulo e outro */
+}
+
+/* O texto do capítulo */
+.titulo {
+  padding-right: 8px;       /* Espaço entre o texto e o início dos pontos */
+}
+
+/* A mágica dos pontos automáticos */
+.pontos {
+  flex-grow: 1;             /* Força este span a ocupar TODO o espaço vazio */
+  border-bottom: 2px dotted black; /* Cria os pontinhos (mude a cor aqui se quiser) */
+  margin-bottom: 4px;       /* Alinha a altura dos pontos com o texto */
+}
+
+/* O número da página */
+.pagina {
+  padding-left: 8px;        /* Espaço entre o fim os pontos e o número */
+  font-weight: bold;        /* Deixa o número em negrito para destacar */
+}
+
+  
+  
+.titulo-Sumario {
+  color: white;
+  text-align: center;
+  margin-left: 38px;
+  margin-right: 38px;
+  background-color: black;
+  opacity: 80%;
+  border-radius: 10px;
+  
+  
+  /* Fonte */
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
+  font-size: 18px;
+  letter-spacing: -0.02em;
+  
+  
+}
+
+
+.capas {
+  width: 425px; 
+  height: 550px; 
+  border-radius: 15px;
+  margin: 5px;
+}
+
+
+.ancoraN {
+  font-size: 20px;
+  color: white;
+  margin-left: 45px;
   margin-right: 10px;
-  padding: 5px;
-  
-  /*Bordas*/
+  margin-top: 13px;
+  margin-bottom: 10px;
+}
+
+.ancoraHR {
+  font-size: 20px;
+  color: ;
+  margin-left: 65px;
+  margin-right: 10px;
+  margin-top: 13px;
+  margin-bottom: 10px;
+}
+
+
+
+
+
+#card-notion {
+  background: black;
+  width: auto;
+  height: auto;
+  margin: 15px;
+  display: flex;
+
+
+  /*Borda do card*/
   border: 4px solid;
   border-radius: 15px;
   border-color: white;
-  
-  
-  
-  
-  
 }
 
-.Bloco2 {
-  /*Remetente da Caixa 2 div*/
-  align-items: center;
-  background: radial-gradient(circle, #a7b5a7, #4be3b0);
-  
-  /*Estrutura*/
-  width: 180px;
-  height: 190px;
-  margin: 10px;
-  margin-left: 10px;
-  padding: 5px;
-  
-  /*Bordas*/
-  border: 4px solid;
-  border-radius: 15px;
-  border-color: white;
-  
-  
+#card-notion img {
+  width: 50px;
+  height: 50px;
 }
 
-.div_blocos {
+#card-hr {
+  background: linear-gradient(to left, white, #9585c7);
+  width: auto;
+  height: auto;
+  margin: 15px;
   display: flex;
   
+    /*Borda do card*/
+  border: 4px solid;
+  border-radius: 15px;
+  border-color: white;
+}
+
+#card-hr img {
+  width: 50px;
+  height: 50px;
+}
+
+
+.containerhr {
+  /*Remetente da Caixa 1*/
+  background: radial-gradient(circle, #a7b5a7, white);
+  width: 1000px;
+  height: auto;
+  padding: 10px;
+  margin: 10px;
+  
+  border: 4px solid;
+  border-radius: 15px;
+  border-color: white;
+  
   
 }
 
-.pfun {
-  
+tabela-horario {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
 }
+
+.tabela-horario th, 
+.tabela-horario td {
+  padding: 12px 16px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.tabela-horario th {
+  background-color: #007bff;
+  color: white;
+}
+
+.tabela-horario tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.tabela-horario tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+tabela-relacao {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: sans-serif;
+}
+
+.tabela-relacao th, .tabela-relacao td {
+  color: black;
+  padding: 8px 10px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.tabela-relacao th {
+  background-color: yellow;
+  color: black;
+}
+
+
+
+.tabela-relacao tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.tabela-relacao tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+
+
+
+
+#nivel1hr {
+  color: white;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+
+.titulohr {
+  color: white;
+  text-align: center;
+  text-shadow: 2px 3px 5px rgba(0, 0, 0, 0.5);
+
+}
+
+
+.imghr {
+  margin: 15px;
+  max-width: 700px;
+  max-height: 700px;
+}
+
+
+.p_hospedagem {
+  color: white;
+}
+
+
+
+
+
