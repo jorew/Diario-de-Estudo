@@ -1,3 +1,6 @@
+const PROXY_URL = "https://dashboard-oficial.jorewmario.workers.dev/dados";
+
+
 async function carregarDados() {
   try {
     const res = await fetch(PROXY_URL);
