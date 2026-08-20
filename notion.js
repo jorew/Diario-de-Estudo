@@ -7,59 +7,18 @@ async function carregarDados() {
     const res = await fetch(PROXY_URL);
     const data = await res.json();
 
-    console.log("Resposta do proxy:", data); // para debug
+    console.log("Resposta do proxy:", data);
 
-    if (!data || !data.results) {
-      throw new Error("A resposta do proxy não contém 'results'. Veja o console.");
+    // Agora o proxy já devolve os percentuais prontos
+    if (!data || data.participacao === undefined) {
+      throw new Error("A resposta do proxy está incompleta. Veja o console.");
     }
 
-    const resultados = processarDados(data.results);
-    renderizar(resultados);
+    renderizar(data);
   } catch (erro) {
     document.getElementById("cards").innerHTML = "Erro ao carregar dados: " + erro.message;
     console.error(erro);
   }
-}
-
-function processarDados(paginas) {
-  if (!paginas || !Array.isArray(paginas)) {
-    return {
-      participacao: 0,
-      comAtividade: 0,
-      total: 0
-    };
-  }
-
-  let totalDias = paginas.length;
-  let diasComParticipacao = 0;
-  let diasComAtividade = 0;
-
-  paginas.forEach(pagina => {
-    const props = pagina.properties;
-
-    // Checkbox de participação
-    const participou = 
-      props["Participei"]?.checkbox || 
-      props["Participei (Checkbox)"]?.checkbox ||
-      props["Participou"]?.checkbox;
-
-    if (participou === true) {
-      diasComParticipacao++;
-    }
-
-    // Relação "Meu Progresso"
-    const progresso = props["Meu Progresso"]?.relation;
-
-    if (progresso && Array.isArray(progresso) && progresso.length > 0) {
-      diasComAtividade++;
-    }
-  });
-
-  return {
-    participacao: totalDias > 0 ? Math.round((diasComParticipacao / totalDias) * 100) : 0,
-    comAtividade: totalDias > 0 ? Math.round((diasComAtividade / totalDias) * 100) : 0,
-    total: totalDias
-  };
 }
 
 function renderizar(dados) {
@@ -67,17 +26,42 @@ function renderizar(dados) {
 
   cards.innerHTML = `
     <div class="card">
-      <div class="circle" style="--percent: \( {dados.participacao}"> \){dados.participacao}%</div>
+      <div class="circle" style="--percent: ${dados.participacao}">${dados.participacao}%</div>
       <strong>Participação Geral</strong>
-      <small>${dados.total} dias registrados</small>
+      <small>${dados.totalDias || 0} dias</small>
     </div>
+
     <div class="card">
-      <div class="circle" style="--percent: \( {dados.comAtividade}"> \){dados.comAtividade}%</div>
-      <strong>Dias com Atividade</strong>
-      <small>Religião, Acadêmico, Treino...</small>
+      <div class="circle" style="--percent: ${dados.religiao}">${dados.religiao}%</div>
+      <strong>Religião</strong>
+    </div>
+
+    <div class="card">
+      <div class="circle" style="--percent: ${dados.academico}">${dados.academico}%</div>
+      <strong>Acadêmico</strong>
+    </div>
+
+    <div class="card">
+      <div class="circle" style="--percent: ${dados.treino}">${dados.treino}%</div>
+      <strong>Treino</strong>
+    </div>
+
+    <div class="card">
+      <div class="circle" style="--percent: ${dados.familia}">${dados.familia}%</div>
+      <strong>Família</strong>
+    </div>
+
+    <div class="card">
+      <div class="circle" style="--percent: ${dados.enem}">${dados.enem}%</div>
+      <strong>Enem</strong>
+    </div>
+
+    <div class="card">
+      <div class="circle" style="--percent: ${dados.leitura}">${dados.leitura}%</div>
+      <strong>Leitura</strong>
     </div>
   `;
 }
 
-// Inicia o carregamento quando a página abrir
+// Inicia quando a página carregar
 carregarDados();
