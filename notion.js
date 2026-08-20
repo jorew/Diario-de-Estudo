@@ -1,5 +1,5 @@
 // ========== CONFIGURAÇÃO ==========
-const PROXY_URL = "https://dashboard-streaks.jorewmario.workers.dev/dados";
+const PROXY_URL = "https://dashboard-oficial.jorewmario.workers.dev/dados";
 // ==================================
 
 async function carregarDados() {
